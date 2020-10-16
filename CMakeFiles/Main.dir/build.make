@@ -68,50 +68,103 @@ CMAKE_SOURCE_DIR = /Users/kajikenshou/imageprocessing
 CMAKE_BINARY_DIR = /Users/kajikenshou/imageprocessing
 
 # Include any dependencies generated for this target.
-include CMakeFiles/Main.dir/depend.make
+include CMakeFiles/main.dir/depend.make
 
 # Include the progress variables for this target.
-include CMakeFiles/Main.dir/progress.make
+include CMakeFiles/main.dir/progress.make
 
 # Include the compile flags for this target's objects.
-include CMakeFiles/Main.dir/flags.make
+include CMakeFiles/main.dir/flags.make
 
-CMakeFiles/Main.dir/project1.cpp.o: CMakeFiles/Main.dir/flags.make
-CMakeFiles/Main.dir/project1.cpp.o: project1.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kajikenshou/imageprocessing/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Main.dir/project1.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Main.dir/project1.cpp.o -c /Users/kajikenshou/imageprocessing/project1.cpp
+CMakeFiles/main.dir/project1.cpp.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/project1.cpp.o: project1.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kajikenshou/imageprocessing/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/main.dir/project1.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/project1.cpp.o -c /Users/kajikenshou/imageprocessing/project1.cpp
 
-CMakeFiles/Main.dir/project1.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Main.dir/project1.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/kajikenshou/imageprocessing/project1.cpp > CMakeFiles/Main.dir/project1.cpp.i
+CMakeFiles/main.dir/project1.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/project1.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/kajikenshou/imageprocessing/project1.cpp > CMakeFiles/main.dir/project1.cpp.i
 
-CMakeFiles/Main.dir/project1.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Main.dir/project1.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/kajikenshou/imageprocessing/project1.cpp -o CMakeFiles/Main.dir/project1.cpp.s
+CMakeFiles/main.dir/project1.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/project1.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/kajikenshou/imageprocessing/project1.cpp -o CMakeFiles/main.dir/project1.cpp.s
 
-# Object files for target Main
-Main_OBJECTS = \
-"CMakeFiles/Main.dir/project1.cpp.o"
+# Object files for target main
+main_OBJECTS = \
+"CMakeFiles/main.dir/project1.cpp.o"
 
-# External object files for target Main
-Main_EXTERNAL_OBJECTS =
+# External object files for target main
+main_EXTERNAL_OBJECTS =
 
-Main: CMakeFiles/Main.dir/project1.cpp.o
-Main: CMakeFiles/Main.dir/build.make
-Main: CMakeFiles/Main.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/kajikenshou/imageprocessing/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable Main"
-	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Main.dir/link.txt --verbose=$(VERBOSE)
+main: CMakeFiles/main.dir/project1.cpp.o
+main: CMakeFiles/main.dir/build.make
+main: /usr/local/lib/libopencv_gapi.4.4.0.dylib
+main: /usr/local/lib/libopencv_stitching.4.4.0.dylib
+main: /usr/local/lib/libopencv_alphamat.4.4.0.dylib
+main: /usr/local/lib/libopencv_aruco.4.4.0.dylib
+main: /usr/local/lib/libopencv_bgsegm.4.4.0.dylib
+main: /usr/local/lib/libopencv_bioinspired.4.4.0.dylib
+main: /usr/local/lib/libopencv_ccalib.4.4.0.dylib
+main: /usr/local/lib/libopencv_dnn_objdetect.4.4.0.dylib
+main: /usr/local/lib/libopencv_dnn_superres.4.4.0.dylib
+main: /usr/local/lib/libopencv_dpm.4.4.0.dylib
+main: /usr/local/lib/libopencv_face.4.4.0.dylib
+main: /usr/local/lib/libopencv_freetype.4.4.0.dylib
+main: /usr/local/lib/libopencv_fuzzy.4.4.0.dylib
+main: /usr/local/lib/libopencv_hfs.4.4.0.dylib
+main: /usr/local/lib/libopencv_img_hash.4.4.0.dylib
+main: /usr/local/lib/libopencv_intensity_transform.4.4.0.dylib
+main: /usr/local/lib/libopencv_line_descriptor.4.4.0.dylib
+main: /usr/local/lib/libopencv_quality.4.4.0.dylib
+main: /usr/local/lib/libopencv_rapid.4.4.0.dylib
+main: /usr/local/lib/libopencv_reg.4.4.0.dylib
+main: /usr/local/lib/libopencv_rgbd.4.4.0.dylib
+main: /usr/local/lib/libopencv_saliency.4.4.0.dylib
+main: /usr/local/lib/libopencv_sfm.4.4.0.dylib
+main: /usr/local/lib/libopencv_stereo.4.4.0.dylib
+main: /usr/local/lib/libopencv_structured_light.4.4.0.dylib
+main: /usr/local/lib/libopencv_superres.4.4.0.dylib
+main: /usr/local/lib/libopencv_surface_matching.4.4.0.dylib
+main: /usr/local/lib/libopencv_tracking.4.4.0.dylib
+main: /usr/local/lib/libopencv_videostab.4.4.0.dylib
+main: /usr/local/lib/libopencv_viz.4.4.0.dylib
+main: /usr/local/lib/libopencv_xfeatures2d.4.4.0.dylib
+main: /usr/local/lib/libopencv_xobjdetect.4.4.0.dylib
+main: /usr/local/lib/libopencv_xphoto.4.4.0.dylib
+main: /usr/local/lib/libopencv_highgui.4.4.0.dylib
+main: /usr/local/lib/libopencv_shape.4.4.0.dylib
+main: /usr/local/lib/libopencv_datasets.4.4.0.dylib
+main: /usr/local/lib/libopencv_plot.4.4.0.dylib
+main: /usr/local/lib/libopencv_text.4.4.0.dylib
+main: /usr/local/lib/libopencv_dnn.4.4.0.dylib
+main: /usr/local/lib/libopencv_ml.4.4.0.dylib
+main: /usr/local/lib/libopencv_phase_unwrapping.4.4.0.dylib
+main: /usr/local/lib/libopencv_optflow.4.4.0.dylib
+main: /usr/local/lib/libopencv_ximgproc.4.4.0.dylib
+main: /usr/local/lib/libopencv_video.4.4.0.dylib
+main: /usr/local/lib/libopencv_videoio.4.4.0.dylib
+main: /usr/local/lib/libopencv_imgcodecs.4.4.0.dylib
+main: /usr/local/lib/libopencv_objdetect.4.4.0.dylib
+main: /usr/local/lib/libopencv_calib3d.4.4.0.dylib
+main: /usr/local/lib/libopencv_features2d.4.4.0.dylib
+main: /usr/local/lib/libopencv_flann.4.4.0.dylib
+main: /usr/local/lib/libopencv_photo.4.4.0.dylib
+main: /usr/local/lib/libopencv_imgproc.4.4.0.dylib
+main: /usr/local/lib/libopencv_core.4.4.0.dylib
+main: CMakeFiles/main.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/kajikenshou/imageprocessing/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable main"
+	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/main.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-CMakeFiles/Main.dir/build: Main
+CMakeFiles/main.dir/build: main
 
-.PHONY : CMakeFiles/Main.dir/build
+.PHONY : CMakeFiles/main.dir/build
 
-CMakeFiles/Main.dir/clean:
-	$(CMAKE_COMMAND) -P CMakeFiles/Main.dir/cmake_clean.cmake
-.PHONY : CMakeFiles/Main.dir/clean
+CMakeFiles/main.dir/clean:
+	$(CMAKE_COMMAND) -P CMakeFiles/main.dir/cmake_clean.cmake
+.PHONY : CMakeFiles/main.dir/clean
 
-CMakeFiles/Main.dir/depend:
-	cd /Users/kajikenshou/imageprocessing && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/kajikenshou/imageprocessing /Users/kajikenshou/imageprocessing /Users/kajikenshou/imageprocessing /Users/kajikenshou/imageprocessing /Users/kajikenshou/imageprocessing/CMakeFiles/Main.dir/DependInfo.cmake --color=$(COLOR)
-.PHONY : CMakeFiles/Main.dir/depend
+CMakeFiles/main.dir/depend:
+	cd /Users/kajikenshou/imageprocessing && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/kajikenshou/imageprocessing /Users/kajikenshou/imageprocessing /Users/kajikenshou/imageprocessing /Users/kajikenshou/imageprocessing /Users/kajikenshou/imageprocessing/CMakeFiles/main.dir/DependInfo.cmake --color=$(COLOR)
+.PHONY : CMakeFiles/main.dir/depend
 
