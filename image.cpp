@@ -6,8 +6,6 @@ using namespace std;
 int main() {
     cout << "start" << endl;
 
-    int red, green, blue;
-
     cv::Mat img = cv::imread("./images/dog.jpg");
     if(img.empty()) return -1;
 
