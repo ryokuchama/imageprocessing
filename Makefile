@@ -142,32 +142,32 @@ main/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
 .PHONY : main/fast
 
-project1.o: project1.cpp.o
+image.o: image.cpp.o
 
-.PHONY : project1.o
+.PHONY : image.o
 
 # target to build an object file
-project1.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/project1.cpp.o
-.PHONY : project1.cpp.o
+image.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/image.cpp.o
+.PHONY : image.cpp.o
 
-project1.i: project1.cpp.i
+image.i: image.cpp.i
 
-.PHONY : project1.i
+.PHONY : image.i
 
 # target to preprocess a source file
-project1.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/project1.cpp.i
-.PHONY : project1.cpp.i
+image.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/image.cpp.i
+.PHONY : image.cpp.i
 
-project1.s: project1.cpp.s
+image.s: image.cpp.s
 
-.PHONY : project1.s
+.PHONY : image.s
 
 # target to generate assembly for a file
-project1.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/project1.cpp.s
-.PHONY : project1.cpp.s
+image.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/image.cpp.s
+.PHONY : image.cpp.s
 
 # Help Target
 help:
@@ -178,9 +178,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... main"
-	@echo "... project1.o"
-	@echo "... project1.i"
-	@echo "... project1.s"
+	@echo "... image.o"
+	@echo "... image.i"
+	@echo "... image.s"
 .PHONY : help
 
 

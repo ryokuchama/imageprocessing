@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/Users/kajikenshou/imageprocessing/project1.cpp
+/Users/kajikenshou/imageprocessing/image.cpp
 iostream
 -
 opencv2/opencv.hpp

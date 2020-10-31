@@ -10,11 +10,9 @@ int main() {
     if(img.empty()) return -1;
 
     cv::namedWindow("dog", cv::WINDOW_AUTOSIZE);
+
+    
     cv::imshow("dog", img);
-    // サイズ
-    int width = img.rows;
-    int height = img.cols;
-    cout << width << height << endl;
 
     // 引数の値に応じてキーボードの入力を受け付ける(単位はミリ秒)
     cv::waitKey(0);
@@ -22,9 +20,7 @@ int main() {
     // ウィンドウ消去
     cv::destroyAllWindows();
 
-    // 画像出力
-    cv::imwrite("./result/result.jpg", img);
-    cout << "Finnish" << endl;
+    cout << "finish" << endl;
 
     return 0;
 }
