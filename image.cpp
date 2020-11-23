@@ -1,5 +1,6 @@
 #include <iostream>
 #include <opencv2/opencv.hpp>
+#include <opencv2/imgproc.hpp>
 
 using namespace std;
 
@@ -10,7 +11,7 @@ int main() {
     if(img.empty()) return -1;
 
     cv::namedWindow("dog", cv::WINDOW_AUTOSIZE);
-
+    
     
     cv::imshow("dog", img);
 
