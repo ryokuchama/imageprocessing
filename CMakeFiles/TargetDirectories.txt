@@ -1,3 +1,0 @@
-/Users/kajikenshou/imageprocessing/CMakeFiles/rebuild_cache.dir
-/Users/kajikenshou/imageprocessing/CMakeFiles/edit_cache.dir
-/Users/kajikenshou/imageprocessing/CMakeFiles/main.dir

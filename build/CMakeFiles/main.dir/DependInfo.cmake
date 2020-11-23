@@ -4,13 +4,13 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/kajikenshou/imageprocessing/image.cpp" "/Users/kajikenshou/imageprocessing/CMakeFiles/main.dir/image.cpp.o"
+  "/Users/kajikenshou/imageprocessing/image.cpp" "/Users/kajikenshou/imageprocessing/build/CMakeFiles/main.dir/image.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "Clang")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "../head"
+  "../../head"
   "/usr/local/Cellar/opencv/4.4.0_2/include/opencv4"
   )
 
