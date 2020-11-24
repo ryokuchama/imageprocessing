@@ -11,7 +11,8 @@ int main() {
     if(img.empty()) return -1;
 
     cv::namedWindow("dog", cv::WINDOW_AUTOSIZE);
-    
+    cv::Mat img_gray;
+    cv::cvtColor(img, img_gray, cv::COLOR_RGB2GRAY);
     
     cv::imshow("dog", img);
 
