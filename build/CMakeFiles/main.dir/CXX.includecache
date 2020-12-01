@@ -7,8 +7,6 @@
 #IncludeRegexTransform: 
 
 /Users/kajikenshou/imageprocessing/image.cpp
-iostream
--
 opencv2/opencv.hpp
 -
 opencv2/imgproc.hpp
