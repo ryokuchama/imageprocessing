@@ -4,28 +4,6 @@
 
 using namespace std;
 
-int main(int argc, char *argv[]) {
-
-    cv::Mat img;
-    cv::Mat channels[3];
-
-    img = cv::imread(argv[1]);
-
-    if(img.empty()) return -1;
-
-    cv::imshow("image", img);
-
-    split(img, channels);
-
-    cv::Mat histgram = CreatingHistgram(channels);
-    cv::imshow("histgram", histgram);
-
-    // 引数の値に応じてキーボードの入力を受け付ける(単位はミリ秒)
-    cv::waitKey(0);
-
-    return 0;
-}
-
 cv::Mat CreatingHistgram(cv::Mat channels[3]){
 
     // 変数
