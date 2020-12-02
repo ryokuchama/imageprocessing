@@ -4,6 +4,7 @@
 
 using namespace std;
 
+// ヒストグラム描画用
 cv::Mat CreatingHistgram(cv::Mat channels[3]){
 
     // 変数
