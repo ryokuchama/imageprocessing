@@ -6,7 +6,6 @@ include_directories(../head)
 # コンパイラへのオプション
 set(CMAKE_CXX_FLAGS "-std=c++0x -O3")
 # コンパイル対象コードと出力ファイル名
-# 余計なファイルが存在したので修正しました(2019/04/25)
 add_executable(main ${src})
 
 # OpenCVに必要(Linuxの場合)

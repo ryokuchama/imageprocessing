@@ -1,6 +1,5 @@
 #include <opencv2/opencv.hpp>
 #include <opencv2/imgproc.hpp>
-#include "CreateHistgram.cpp"
 
 using namespace std;
 using namespace cv;
@@ -15,8 +14,6 @@ int main() {
     split(img, channels);
 
     threshold(img, bin_img, 0, 255, THRESH_OTSU);
-
-    Mat histgram = CreatingHistgram(channels);
 
     return 0;
 }
