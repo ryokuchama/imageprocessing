@@ -1,4 +1,7 @@
+# 最低保証バージョン
 cmake_minimum_required(VERSION 3.0)
+# プロジェクト名
+project(imageprocessing)
 # コンパイルに必要なソースコードを取得(それぞれの環境に合わせる)
 file(GLOB src ../imageprocessing/*.cpp)
 # インクルードパスの設定(これもそれぞれの環境に合わせる)
@@ -12,3 +15,8 @@ add_executable(main ${src})
 find_package(OpenCV REQUIRED)
 include_directories(${OpenCV_INCLUDE_DIRS})
 target_link_libraries(main ${OpenCV_LIBS})
+
+# matplotlibcppで使うPythonとNumpyを探す
+find_package(PythonLibs 3)
+include_directories(${PYTHON_INCLUDE_DIRS})
+target_link_libraries(main ${PYTHON_LIBRARIES})

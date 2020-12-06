@@ -1,8 +1,11 @@
 #include <opencv2/opencv.hpp>
 #include <opencv2/imgproc.hpp>
+#include <matplotlib-cpp/matplotlibcpp.h>
 
 using namespace std;
 using namespace cv;
+
+namespace plt = matplotlibcpp;
 
 int main() {
     Mat img = imread("./images/dog.jpg", 0);

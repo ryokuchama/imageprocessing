@@ -6,11 +6,12 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/Users/kajikenshou/imageprocessing/image.cpp" "/Users/kajikenshou/imageprocessing/build/CMakeFiles/main.dir/image.cpp.o"
   )
-set(CMAKE_CXX_COMPILER_ID "Clang")
+set(CMAKE_CXX_COMPILER_ID "AppleClang")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../../head"
+  "/Library/Frameworks/Python.framework/Versions/3.7/include/python3.7m"
   "/usr/local/Cellar/opencv/4.4.0_2/include/opencv4"
   )
 
