@@ -131,7 +131,6 @@ main: /usr/local/lib/libopencv_viz.4.4.0.dylib
 main: /usr/local/lib/libopencv_xfeatures2d.4.4.0.dylib
 main: /usr/local/lib/libopencv_xobjdetect.4.4.0.dylib
 main: /usr/local/lib/libopencv_xphoto.4.4.0.dylib
-main: /Library/Frameworks/Python.framework/Versions/3.7/lib/libpython3.7m.dylib
 main: /usr/local/lib/libopencv_highgui.4.4.0.dylib
 main: /usr/local/lib/libopencv_shape.4.4.0.dylib
 main: /usr/local/lib/libopencv_datasets.4.4.0.dylib

@@ -15,8 +15,3 @@ add_executable(main ${src})
 find_package(OpenCV REQUIRED)
 include_directories(${OpenCV_INCLUDE_DIRS})
 target_link_libraries(main ${OpenCV_LIBS})
-
-# matplotlibcppで使うPythonとNumpyを探す
-find_package(PythonLibs 3)
-include_directories(${PYTHON_INCLUDE_DIRS})
-target_link_libraries(main ${PYTHON_LIBRARIES})
