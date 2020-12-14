@@ -6,11 +6,17 @@
 
 #IncludeRegexTransform: 
 
+/Users/kajikenshou/imageprocessing/GetImage.hpp
+opencv2/opencv.hpp
+-
+
 /Users/kajikenshou/imageprocessing/image.cpp
 opencv2/opencv.hpp
 -
 opencv2/imgproc.hpp
 -
+GetImage.hpp
+/Users/kajikenshou/imageprocessing/GetImage.hpp
 
 /usr/local/Cellar/opencv/4.4.0_2/include/opencv4/opencv2/calib3d.hpp
 opencv2/core.hpp
