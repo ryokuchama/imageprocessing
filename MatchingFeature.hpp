@@ -5,38 +5,44 @@ using namespace std;
 using namespace cv;
 
 /*
- 特徴点マッチングを行うクラス
- アルゴリズムはA-KAZEを使用する
+ the class is for matching feature
+ Akaze algorithm is used
 */
 class MatchingFeature {
 
-    // AKAZEオブジェクト
+    // Akaze object(for detect)
     Ptr<AKAZE> akaze;
-    // 特徴点情報を格納する変数
-    vector<KeyPoint> keyAkaze;
-    // 出力
-    Mat dstAkaze;
-
-    // コンストラクタ
-    MatchingFeature() {
+    // Brute-Force object(for matcher)
+    Ptr<DescriptorMatcher> matcher;
+    // keypoint
+    vector<KeyPoint> srcKey, targetKey;
+    // matching
+    vector<DMatch> dMatch;
+    // output features on image
+    Mat dstSrc, dstTarget;
+    // output matching features on image
+    Mat result;
+    
+    // constructor
+    public: MatchingFeature() {
         akaze = AKAZE::create();
+        matcher = DescriptorMatcher::create("BruteForce");
     }
 
-    // 特徴点を検出して画像上に描画
-    public: Mat detect(Mat img) {
-        // キーポイントの検出
-        akaze->detect(img, keyAkaze);
+    // detect features and match
+    public: Mat detectAndMatch(Mat src, Mat target) {
+        // detect keypoints
+        akaze->detect(src, srcKey);
+        akaze->detect(target, targetKey);
 
-        // 画像上にキーポイントの場所を描画
+        // draw features on image
         drawKeypoints(
-            img, keyAkaze, dstAkaze, Scalar::all(-1), DrawMatchesFlags::DRAW_RICH_KEYPOINTS
+            src, srcKey, dstSrc, Scalar::all(-1), DrawMatchesFlags::DRAW_RICH_KEYPOINTS
+            );
+        drawKeypoints(
+            target, targetKey, dstTarget, Scalar::all(-1), DrawMatchesFlags::DRAW_RICH_KEYPOINTS
             );
 
-        return dstAkaze;
-    }
-
-    // 特徴点を算出して特徴点をマッチング
-    public: Mat matching(Mat img1, Mat img2) {
-
+        
     }
 };

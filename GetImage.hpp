@@ -3,7 +3,7 @@
 using namespace std;
 using namespace cv;
 
-// 画像をグレースケールで読み込むクラス
+// the class for read image as glay scale
 class GetImage {
  
     public: Mat getImage(string s) {
