@@ -6,7 +6,6 @@ using namespace cv;
 
 /*
  the class is for matching feature
- Akaze algorithm is used
 */
 class MatchingFeature {
 
@@ -18,6 +17,8 @@ class MatchingFeature {
     vector<KeyPoint> srcKey, targetKey;
     // matching
     vector<DMatch> dMatch;
+    // compute features
+    Mat descriptionSrc, descriptionTarget;
     // output features on image
     Mat dstSrc, dstTarget;
     // output matching features on image
@@ -25,15 +26,17 @@ class MatchingFeature {
     
     // constructor
     public: MatchingFeature() {
+        // algorithm for detecting
         akaze = AKAZE::create();
+        // algorithm for matching
         matcher = DescriptorMatcher::create("BruteForce");
     }
 
     // detect features and match
     public: Mat detectAndMatch(Mat src, Mat target) {
         // detect keypoints
-        akaze->detect(src, srcKey);
-        akaze->detect(target, targetKey);
+        akaze -> detect(src, srcKey);
+        akaze -> detect(target, targetKey);
 
         // draw features on image
         drawKeypoints(
@@ -43,6 +46,18 @@ class MatchingFeature {
             target, targetKey, dstTarget, Scalar::all(-1), DrawMatchesFlags::DRAW_RICH_KEYPOINTS
             );
 
-        
+        // compute features
+        akaze -> compute(src, srcKey, descriptionSrc);
+        akaze -> compute(target, targetKey, descriptionTarget);
+
+        // matching
+        matcher -> match(descriptionSrc, descriptionTarget, dMatch);
+
+        // show image
+        drawMatches(src, srcKey, target, targetKey, dMatch, result);
+        imshow("src", src);
+        imshow("target", target);
+        imshow("result", result);
+        waitKey(10000);
     }
 };
