@@ -4,10 +4,7 @@
             "name": "Mac",
             "includePath": [
                 "${workspaceFolder}/**",
-                "/usr/local/include/",
-                "/usr/local/include/opencv4/",
-                "/usr/local/include/matplotlib-cpp/",
-                "/Library/Frameworks/Python.framework/Versions/3.7/include/python3.7m"
+                "/usr/local/include/opencv4/"
             ],
             "defines": [],
             "macFrameworkPath": [],
