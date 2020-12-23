@@ -59,5 +59,9 @@ class MatchingFeature {
         imshow("target", target);
         imshow("result", result);
         waitKey(10000);
+
+        destroyAllWindows();
+
+        
     }
 };

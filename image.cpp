@@ -10,8 +10,8 @@ int main() {
 
     String src_path;
     String target_path;
-    GetImage getImage;
-    MatchingFeature matchingFeature;
+    GetImage getImage = GetImage();
+    MatchingFeature matchingFeature = MatchingFeature();
 
     // source image
     Mat src = getImage.getImage(src_path);
@@ -19,6 +19,8 @@ int main() {
     Mat target = getImage.getImage(target_path);
 
     // detect feature point and draw
+    matchingFeature.detectAndMatch(src, target);
+
     
 
     return 0;
