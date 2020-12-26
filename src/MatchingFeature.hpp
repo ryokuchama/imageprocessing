@@ -33,7 +33,23 @@ class MatchingFeature {
     // distance
     double distanceSrc;
     double distanceTarget;
-    
+
+    // Homography matrix estimation
+    Mat mask;
+    // output for Homography matrix estimation
+    Mat homoResult;
+    // the point used by RANSAC
+    vector<DMatch> inlineMatch;
+    // output for corresponding point
+    Mat drawMatch;
+    // output for inliner corresponding point
+    Mat inlinerDrawMatch;
+
+    // output for warping perspective of src
+    Mat warpedSrc;
+    // output for warping perspective of target
+    Mat warpedTarget;
+
     // constructor
     public: MatchingFeature() {
         // algorithm for detecting
@@ -59,7 +75,7 @@ class MatchingFeature {
         waitKey(10000);
 
         destroyAllWindows();
-
+    
         for (size_t i = 0; i < knnMatch.size(); ++i) {
             distanceSrc = knnMatch[i][0].distance;
             distanceTarget = knnMatch[i][1].distance;
@@ -73,5 +89,35 @@ class MatchingFeature {
         }
 
         //　homography matrix
+        homoResult = findHomography(
+            srcPoint, targetPoint, mask, RANSAC, 3
+        );
+
+        // pick up the point used by RANSAC
+        for (size_t i = 0; i < mask.rows; ++i) {
+            uchar *inliner = mask.ptr<uchar>(i);
+            if(inliner[0] == 1) {
+                inlineMatch.push_back(goodMatch[i]);
+            }
+        }
+
+        // show corresponding point
+        drawMatches(
+            src, srcKey, target, targetKey, goodMatch, drawMatch
+        );
+        imwrite("../images/match_point.jpg", drawMatch);
+
+        // show inliner corresponding point
+        drawMatches(
+            src, srcKey, target, targetKey, inlineMatch, inlinerDrawMatch
+            );
+        imwrite("../images/match_inliner.jpg", inlinerDrawMatch);
+
+        imshow("DrawMatch", drawMatch);
+        imshow("Inliner", inlinerDrawMatch);
+        waitKey(5000);
+        destroyAllWindows();
+
+        // warpPerspective
     }
 };

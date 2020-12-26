@@ -3,4 +3,20 @@
 
 class FindDifferences {
 
+    // constructor
+    public: FindDifferences() {
+
+    }
+
+    public: void findDifferences() {
+
+    }
+
+    public: void pickUp() {
+        
+    }
+
+    public: void drawCircle() {
+
+    }
 };
