@@ -64,6 +64,7 @@ class MatchingFeature {
             distanceSrc = knnMatch[i][0].distance;
             distanceTarget = knnMatch[i][1].distance;
 
+            // detect the point that is far from the second one.
             if (distanceSrc <= distanceTarget * limen) {
                 goodMatch.push_back(knnMatch[i][0]);
                 srcPoint.push_back(srcKey[knnMatch[i][0].queryIdx].pt);
