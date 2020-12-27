@@ -6,6 +6,11 @@
 using namespace std;
 using namespace cv;
 
+/*
+Find the Differences
+Corrct Image = src
+Comparative Image = target
+*/
 int main() {
 
     String src_path;
@@ -19,9 +24,9 @@ int main() {
     Mat target = getImage.getImage(target_path);
 
     // detect feature point and draw
-    matchingFeature.detectAndMatch(src, target);
+    Mat warpedTarget = matchingFeature.detectAndMatch(src, target);
 
-    
+    // Find differences
 
     return 0;
 }

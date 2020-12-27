@@ -119,5 +119,8 @@ class MatchingFeature {
         destroyAllWindows();
 
         // warpPerspective
+        warpPerspective(target, warpedTarget, homoResult, Size(src.rows, src.cols));
+
+        return warpedTarget;
     }
 };
