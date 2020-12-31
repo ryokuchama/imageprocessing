@@ -24,7 +24,7 @@ int main() {
     Mat target = getImage.getImage(target_path);
 
     // detect feature point and draw
-    Mat warpedTarget = matchingFeature.detectAndMatch(src, target);
+    Mat warpedTarget = matchingFeature.warpPerspect(src, target);
 
     // Find differences
 

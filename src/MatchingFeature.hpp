@@ -8,6 +8,7 @@ using namespace cv;
 /*
  the class is for matching feature
 */
+// TODO: trim an image with contour and make it square
 class MatchingFeature {
 
     // Akaze object(for detect)
@@ -57,7 +58,7 @@ class MatchingFeature {
     }
 
     // detect features and match
-    public: Mat detectAndMatch(Mat src, Mat target) {
+    public: vector<vector<DMatch>> detectAndMatch(Mat src, Mat target) {
 
         // detect and compute keypoints
         akaze -> detectAndCompute(src, Mat(), srcKey, descriptionSrc);
@@ -76,15 +77,23 @@ class MatchingFeature {
 
         destroyAllWindows();
     
-        for (size_t i = 0; i < knnMatch.size(); ++i) {
-            distanceSrc = knnMatch[i][0].distance;
-            distanceTarget = knnMatch[i][1].distance;
+        return knnMatch;
+    }
+
+    // warp perspect
+    public: Mat warpPerspect(Mat src, Mat target) {
+
+        vector<vector<DMatch>> kMatch = detectAndMatch(src, target);
+
+        for (size_t i = 0; i < kMatch.size(); ++i) {
+            distanceSrc = kMatch[i][0].distance;
+            distanceTarget = kMatch[i][1].distance;
 
             // detect the point that is far from the second one.
             if (distanceSrc <= distanceTarget * limen) {
-                goodMatch.push_back(knnMatch[i][0]);
-                srcPoint.push_back(srcKey[knnMatch[i][0].queryIdx].pt);
-                targetPoint.push_back(targetKey[knnMatch[i][0].trainIdx].pt);
+                goodMatch.push_back(kMatch[i][0]);
+                srcPoint.push_back(srcKey[kMatch[i][0].queryIdx].pt);
+                targetPoint.push_back(targetKey[kMatch[i][0].trainIdx].pt);
             }
         }
 
