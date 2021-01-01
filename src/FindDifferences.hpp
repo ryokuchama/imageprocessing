@@ -7,17 +7,17 @@ using namespace cv;
 
 class FindDifferences {
 
+    MatchingFeature mFeature = MatchingFeature();
     // trimmed image
     Mat trimmedSrc;
-    // 
 
     // constructor
     public: FindDifferences() {
-
+        
     }
 
-    public: void findDifferences() {
-
+    public: void findDifferences(Mat src, Mat target) {
+        mFeature.detectAndMatch(src, target);
     }
 
     // trimming the src image
@@ -31,7 +31,7 @@ class FindDifferences {
                 Rect rect = Rect(h, w, h + 100, w + 100);
                 Mat trimmed(src, rect);
 
-                
+                findDifferences(trimmed, target);
             }
         }
     }

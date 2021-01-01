@@ -2,6 +2,7 @@
 #include <opencv2/imgproc.hpp>
 #include "GetImage.hpp"
 #include "MatchingFeature.hpp"
+#include "FindDifferences.hpp"
 
 using namespace std;
 using namespace cv;
@@ -11,12 +12,16 @@ Find the Differences
 Corrct Image = src
 Comparative Image = target
 */
+
 int main() {
 
-    String src_path;
-    String target_path;
+    const string src_path = "../images/source.jpg";
+    const string target_path = "../images/target.jpg";
+    // String src_path;
+    // String target_path;
     GetImage getImage = GetImage();
     MatchingFeature matchingFeature = MatchingFeature();
+    FindDifferences findDifferences = FindDifferences();
 
     // source image
     Mat src = getImage.getImage(src_path);
