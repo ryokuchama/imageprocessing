@@ -16,8 +16,9 @@ class FindDifferences {
         
     }
 
-    public: void findDifferences(Mat src, Mat target) {
-        mFeature.detectAndMatch(src, target);
+    public: void detectObj(Mat src, Mat target) {
+        // detect object
+        mFeature.detectObject(src, target);
     }
 
     // trimming the src image
@@ -31,7 +32,7 @@ class FindDifferences {
                 Rect rect = Rect(h, w, h + 100, w + 100);
                 Mat trimmed(src, rect);
 
-                findDifferences(trimmed, target);
+                detectObj(trimmed, target);
             }
         }
     }
