@@ -139,7 +139,7 @@ class MatchingFeature {
         // object detection
         perspectiveTransform(srcCorner, targetCorner, homography);
 
-        Rect rect = Rect(targetCorner[0][0], targetCorner[0][1], 100, 100);
+        Rect rect = Rect(targetCorner[0][0], targetCorner[0], 100, 100);
         imshow("src", src);
         waitKey(5000);
         imshow("target", targetCorner);
