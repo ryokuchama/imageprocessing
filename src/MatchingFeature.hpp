@@ -127,7 +127,6 @@ class MatchingFeature {
         
         vector<Point2f> srcCorner(4);
         vector<Point2f> targetCorner(4);
-        Mat pickedup;
         Mat homography = detectAndMatch(src, target);
 
         // calculate size of src
@@ -139,10 +138,12 @@ class MatchingFeature {
         // object detection
         perspectiveTransform(srcCorner, targetCorner, homography);
 
-        Rect rect = Rect(targetCorner[0][0], targetCorner[0], 100, 100);
+        Rect rect = Rect(targetCorner[0], Size(100, 100));
+        Mat crop(target, rect);
+
         imshow("src", src);
         waitKey(5000);
-        imshow("target", targetCorner);
+        imshow("target", crop);
         waitKey(5000);
         destroyAllWindows();
     }

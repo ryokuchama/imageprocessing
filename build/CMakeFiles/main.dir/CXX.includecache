@@ -6,6 +6,14 @@
 
 #IncludeRegexTransform: 
 
+/Users/kajikenshou/imageprocessing/src/FindDifferences.hpp
+opencv2/opencv.hpp
+-
+opencv2/imgproc.hpp
+-
+MatchingFeature.hpp
+/Users/kajikenshou/imageprocessing/src/MatchingFeature.hpp
+
 /Users/kajikenshou/imageprocessing/src/GetImage.hpp
 opencv2/opencv.hpp
 -
@@ -27,6 +35,8 @@ GetImage.hpp
 /Users/kajikenshou/imageprocessing/src/GetImage.hpp
 MatchingFeature.hpp
 /Users/kajikenshou/imageprocessing/src/MatchingFeature.hpp
+FindDifferences.hpp
+/Users/kajikenshou/imageprocessing/src/FindDifferences.hpp
 
 /usr/local/Cellar/opencv/4.4.0_2/include/opencv4/opencv2/calib3d.hpp
 opencv2/core.hpp
