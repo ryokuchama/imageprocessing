@@ -146,5 +146,7 @@ class MatchingFeature {
         imshow("target", crop);
         waitKey(5000);
         destroyAllWindows();
+
+        return crop;
     }
 };

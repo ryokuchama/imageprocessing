@@ -1,6 +1,5 @@
 #include <opencv2/opencv.hpp>
 #include <opencv2/imgproc.hpp>
-#include "MatchingFeature.hpp"
 
 using namespace std;
 using namespace cv;
@@ -16,9 +15,14 @@ class FindDifferences {
         
     }
 
-    public: void detectObj(Mat src, Mat target) {
-        // detect object
-        mFeature.detectObject(src, target);
+    public: void findDifferences(Mat src, Mat target) {
+        
+        Mat srcChannels[3], sRed, sBlue, sGreen;
+        Mat targetChannels[3], tRed, tBlue, tGreen;
+
+        split(src, srcChannels);
+        split(target, targetChannels);
+        
     }
 
     // trimming the src image
@@ -32,7 +36,9 @@ class FindDifferences {
                 Rect rect = Rect(h, w, h + 100, w + 100);
                 Mat trimmed(src, rect);
 
-                detectObj(trimmed, target);
+                // detect and crop the target
+                Mat cropped = mFeature.detectObject(trimmed, target);
+                findDifferences(trimmed, cropped);
             }
         }
     }

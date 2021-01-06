@@ -11,8 +11,6 @@ opencv2/opencv.hpp
 -
 opencv2/imgproc.hpp
 -
-MatchingFeature.hpp
-/Users/kajikenshou/imageprocessing/src/MatchingFeature.hpp
 
 /Users/kajikenshou/imageprocessing/src/GetImage.hpp
 opencv2/opencv.hpp
