@@ -1,6 +1,5 @@
 #include <opencv2/opencv.hpp>
 #include <opencv2/imgproc.hpp>
-#include "GetImage.hpp"
 #include "MatchingFeature.hpp"
 #include "FindDifferences.hpp"
 
@@ -19,17 +18,19 @@ int main() {
     const string target_path = "../images/target.jpg";
     // String src_path;
     // String target_path;
-    GetImage getImage = GetImage();
     MatchingFeature matchingFeature = MatchingFeature();
     FindDifferences findDifferences = FindDifferences();
 
+    Mat src;
+    Mat target;
+
     // source image
-    Mat src = getImage.getImage(src_path);
+    src = imread(src_path);
     // target image
-    Mat target = getImage.getImage(target_path);
+    target = imread(target_path);
 
     // detect feature point and draw
-    Mat warpedTarget = matchingFeature.warpPerspect(src, target);
+    Mat warpedTarget = matchingFeature.warpPerspect(&src, &target);
 
     // Find differences
 
