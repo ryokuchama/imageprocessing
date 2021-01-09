@@ -8,7 +8,7 @@ using namespace cv;
 /*
  the class is for matching feature
 */
-// TODO: trim an image with contour and make it square
+
 class MatchingFeature {
 
     // Akaze object(for detect)
@@ -25,7 +25,7 @@ class MatchingFeature {
     }
 
     // detect features and match
-    public: void detectAndMatch(Mat src, Mat target) {
+    public: void detectAndMatch(Mat &src, Mat &target) {
 
         // detect and compute keypoints
         vector<KeyPoint> srcKey, targetKey;
@@ -74,7 +74,7 @@ class MatchingFeature {
 
         // Homography matrix estimation
         Mat mask;
-        *homography = findHomography(
+        *homography -- &findHomography(
             srcPoint, targetPoint, mask, RANSAC, 3
         );
 
@@ -110,39 +110,39 @@ class MatchingFeature {
     }
 
     // warp perspective
-    public: Mat warpPerspect(Mat *src, Mat *target) {
+    public: Mat warpPerspect(Mat &src, Mat &target) {
         // output for warping perspective of src
         Mat warpedSrc;
         // output for warping perspective of target
         Mat warpedTarget;
 
-        detectAndMatch(*src, *target);
+        detectAndMatch(src, target);
         // warpPerspective
-        warpPerspective(*target, warpedTarget, *homography, Size(src->rows, src->cols));
+        warpPerspective(target, warpedTarget, *homography, Size(src.rows, src.cols));
 
         return warpedTarget;
     }
 
     // pick up matched object from target
-    public: Mat detectObject(Mat *src, Mat *target) {
+    public: Mat detectObject(Mat &src, Mat &target) {
         
         vector<Point2f> srcCorner(4);
         vector<Point2f> targetCorner(4);
-        detectAndMatch(*src, *target);
+        detectAndMatch(src, target);
 
         // calculate size of src
         srcCorner[0] = Point2f(.0f, .0f);
-        srcCorner[1] = Point2f(static_cast<float>(src->cols), .0f);
-        srcCorner[2] = Point2f(static_cast<float>(src->cols), static_cast<float>(src->rows));
-        srcCorner[3] = Point2f(.0f, static_cast<float>(src->rows));
+        srcCorner[1] = Point2f(static_cast<float>(src.cols), .0f);
+        srcCorner[2] = Point2f(static_cast<float>(src.cols), static_cast<float>(src.rows));
+        srcCorner[3] = Point2f(.0f, static_cast<float>(src.rows));
 
         // object detection
         perspectiveTransform(srcCorner, targetCorner, *homography);
 
         Rect rect = Rect(targetCorner[0], Size(100, 100));
-        Mat crop(*target, rect);
+        Mat crop(target, rect);
 
-        imshow("src", *src);
+        imshow("src", src);
         waitKey(5000);
         imshow("target", crop);
         waitKey(5000);

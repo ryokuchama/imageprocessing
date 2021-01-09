@@ -11,7 +11,8 @@ Find the Differences
 Corrct Image = src
 Comparative Image = target
 */
-
+// TODO: trim an image with contour and make it square
+// TODO: equarizeHist
 int main() {
 
     const string src_path = "../images/source.jpg";
@@ -30,7 +31,7 @@ int main() {
     target = imread(target_path);
 
     // detect feature point and draw
-    Mat warpedTarget = matchingFeature.warpPerspect(&src, &target);
+    Mat warpedTarget = matchingFeature.warpPerspect(src, target);
 
     // Find differences
 
