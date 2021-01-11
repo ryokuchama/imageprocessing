@@ -39,10 +39,10 @@ class GetImage {
                 return contourArea(x) < contourArea(y);
         });
 
-        auto area = [maxContour](){
-            Mat pointf;
-            Mat(*maxContour).convertTo(pointf, CV_32F);
-            return fitEllipse(pointf);
-        }();
+        vector<Point> approx;
+        approxPolyDP(
+            Mat(contours.begin()), approx, 0.01 * arcLength(contours[i], true), true
+            );
+
     }
 };
