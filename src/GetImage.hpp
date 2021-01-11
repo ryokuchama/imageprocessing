@@ -1,10 +1,13 @@
 #include <opencv2/opencv.hpp>
+#include <opencv2/core.hpp>
 
 using namespace std;
 using namespace cv;
 
 // the class for read image as glay scale
 class GetImage {
+
+    const int square = 10000;
  
     public: Mat getImage(string s) {
 
@@ -30,19 +33,36 @@ class GetImage {
         adaptiveThreshold(gray, input, 255, ADAPTIVE_THRESH_GAUSSIAN_C, THRESH_BINARY, 7, 8);
 
         vector<vector<Point>> contours;
+        vector<Vec4i> hierarchy;
 
-        findContours(input, contours, RETR_EXTERNAL, CHAIN_APPROX_SIMPLE);
+        findContours(input, contours, hierarchy, RETR_EXTERNAL, CHAIN_APPROX_SIMPLE);
 
-        auto maxContour = max_element(
-            contours.begin(), contours.end(), [](vector<Point> x, vector<Point> y
-            ){
-                return contourArea(x) < contourArea(y);
-        });
+        int maxLevel = 0;
+        Mat out;
+        
+        for (int i = 0; i < contours.size(); ++i) {
+            double area = contourArea(contours[i], false);
 
-        vector<Point> approx;
-        approxPolyDP(
-            Mat(contours.begin()), approx, 0.01 * arcLength(contours[i], true), true
-            );
+            if (area > square) {
+                vector<Point> approx;
+                approxPolyDP(
+                    Mat(contours[i]), approx, 0.01 * arcLength(contours[i], true), true
+                    );
+                if (approx.size() == 4) {
+                    drawContours(img, out, i, Scalar(255, 0, 0, 255), 3, LINE_AA, hierarchy, maxLevel);
+                }
+            }
+        }
+    }
 
+    public: Mat warpPerspect(Mat img) {
+        Point2f src[4];
+        Point2f dst[4];
+        Mat warped;
+
+        Mat matrix = getPerspectiveTransform(src, dst);
+        warpPerspective(img, warped, matrix, img.size(), INTER_LINEAR);
+
+        return warped;
     }
 };
