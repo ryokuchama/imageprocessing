@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/Users/kajikenshou/imageprocessing/build",
+  "command": "/usr/bin/clang++   -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -o CMakeFiles/imageprocessing.dir/main.cpp.o -c /Users/kajikenshou/imageprocessing/main.cpp",
+  "file": "/Users/kajikenshou/imageprocessing/main.cpp"
+}
+]
