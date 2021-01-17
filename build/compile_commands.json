@@ -1,7 +1,7 @@
 [
 {
   "directory": "/Users/kajikenshou/imageprocessing/build",
-  "command": "/usr/bin/clang++   -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -o CMakeFiles/imageprocessing.dir/main.cpp.o -c /Users/kajikenshou/imageprocessing/main.cpp",
+  "command": "/usr/bin/clang++  -isystem /usr/local/Cellar/opencv/4.4.0_2/include/opencv4 -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -std=gnu++11 -o CMakeFiles/imageprocessing.dir/main.cpp.o -c /Users/kajikenshou/imageprocessing/main.cpp",
   "file": "/Users/kajikenshou/imageprocessing/main.cpp"
 }
 ]
