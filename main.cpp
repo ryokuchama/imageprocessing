@@ -16,8 +16,8 @@ Comparative Image = target
 // TODO: equarizeHist
 int main() {
 
-    const string src_path = "../images/source.jpg";
-    const string target_path = "../images/target.jpg";
+    const string src_path = "./images/source.jpg";
+    const string target_path = "./images/target.jpg";
     // String src_path;
     // String target_path;
     GetImage getImage = GetImage();

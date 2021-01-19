@@ -27,26 +27,13 @@ class GetImage {
         findContours(input, contours, hierarchy, RETR_EXTERNAL, CHAIN_APPROX_SIMPLE);
 
         int maxLevel = 0;
-        double result = 0;
         Mat out;
         
         for (int i = 0; i < contours.size(); ++i) {
-            double area = contourArea(contours[i], false);
+            drawContours(img, contours, i, Scalar(255, 0, 0, 255), 3, LINE_AA, hierarchy, maxLevel);
+        }
 
-            if (area > 10000) {
-                vector<Point> approx;
-                approxPolyDP(
-                    Mat(contours[i]), approx, 0.01 * arcLength(contours[i], true), true
-                    );
-                if (approx.size() == 4) {
-                    drawContours(img, out, i, Scalar(255, 0, 0, 255), 3, LINE_AA, hierarchy, maxLevel);
-
-                    imshow("out", out);
-                    waitKey(0);
-                    destroyAllWindows();                   
-                }
-            }
-        }     
+        imwrite("../images/img.jpg", img);
     }
 
     public: Mat warpPerspect(Mat img) {
