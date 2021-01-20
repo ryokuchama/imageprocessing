@@ -27,8 +27,12 @@ int main() {
     Mat src;
     Mat target;
 
+    src = imread(src_path, 1);
+    imshow("src", src);
+    waitKey(3000);
+    destroyAllWindows();
     // source image
-    src = getImage.contours(src_path);
+    getImage.contours(src);
     // target image
     // target = getImage.contours(target_path);
 

@@ -8,19 +8,17 @@ using namespace cv;
 class GetImage {
 
     // minimum coordinate
-    public: Mat contours(string s) {
+    public: void contours(Mat &img) {
 
-        Mat img;
         Mat gray;
         Mat equalized;
-
-        img = imread(s);
 
         Mat input(img.rows, img.cols, img.type());
         cvtColor(img, gray, COLOR_BGR2GRAY);
         equalizeHist(gray, equalized);
         adaptiveThreshold(equalized, input, 255, ADAPTIVE_THRESH_GAUSSIAN_C, THRESH_BINARY, 7, 8);
 
+        imwrite("../result/threshold.jpg", input);
         vector<vector<Point>> contours;
         vector<Vec4i> hierarchy;
 
