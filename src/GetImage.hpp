@@ -12,26 +12,42 @@ class GetImage {
 
         Mat gray;
         Mat equalized;
+        Mat bin;
 
-        Mat input(img.rows, img.cols, img.type());
-        cvtColor(img, gray, COLOR_BGR2GRAY);
-        equalizeHist(gray, equalized);
-        adaptiveThreshold(equalized, input, 255, ADAPTIVE_THRESH_GAUSSIAN_C, THRESH_BINARY, 7, 8);
+        if (!img.empty()) {
 
-        imwrite("../result/threshold.jpg", input);
-        vector<vector<Point>> contours;
-        vector<Vec4i> hierarchy;
+            cvtColor(img, gray, COLOR_BGR2GRAY);
+            equalizeHist(gray, equalized);
+            adaptiveThreshold(equalized, bin, 255, ADAPTIVE_THRESH_GAUSSIAN_C, THRESH_BINARY, 7, 8);
 
-        findContours(input, contours, hierarchy, RETR_EXTERNAL, CHAIN_APPROX_SIMPLE);
+            imshow("bin", bin);
+            waitKey(3000);
+            destroyAllWindows();
 
-        int maxLevel = 0;
-        Mat out;
-        
-        for (int i = 0; i < contours.size(); ++i) {
-            drawContours(img, contours, i, Scalar(255, 0, 0, 255), 3, LINE_AA, hierarchy, maxLevel);
+            vector<vector<Point>> contours;
+            vector<Vec4i> hierarchy;
+
+            findContours(bin, contours, hierarchy, RETR_EXTERNAL, CHAIN_APPROX_SIMPLE);
+
+            int maxLevel = 0;
+            Mat out;
+            
+            for (int i = 0; i < contours.size(); ++i) {
+                drawContours(img, contours, i, Scalar(255, 0, 0, 255), 3, LINE_AA, hierarchy, maxLevel);
+
+                imshow("img", img);
+                waitKey(3000);
+                destroyAllWindows();
+            }
         }
+        else
+        {
+            cout << "image is null" << endl;
+            cout << img << endl;
+        }
+        
 
-        imwrite("../images/img.jpg", img);
+        
     }
 
     public: Mat warpPerspect(Mat img) {
