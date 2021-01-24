@@ -13,41 +13,39 @@ class GetImage {
         Mat gray;
         Mat equalized;
         Mat bin;
+        Mat thres;
 
-        if (!img.empty()) {
+        cvtColor(img, gray, COLOR_BGR2GRAY);
+        equalizeHist(gray, equalized);
+        threshold(gray, thres, 0, 255, THRESH_OTSU);
+        adaptiveThreshold(equalized, bin, 255, ADAPTIVE_THRESH_GAUSSIAN_C, THRESH_BINARY, 7, 8);
 
-            cvtColor(img, gray, COLOR_BGR2GRAY);
-            equalizeHist(gray, equalized);
-            adaptiveThreshold(equalized, bin, 255, ADAPTIVE_THRESH_GAUSSIAN_C, THRESH_BINARY, 7, 8);
+        bitwise_not(bin, bin);
+        bitwise_not(thres, thres);
+        imwrite("./result/bitwise_result.jpg", bin);
+        imwrite("./result/bitwise_result2.jpg", thres);
 
-            imshow("bin", bin);
-            waitKey(3000);
-            destroyAllWindows();
+        vector<vector<Point>> contours;
+        vector<Vec4i> hierarchy;
 
-            vector<vector<Point>> contours;
-            vector<Vec4i> hierarchy;
+        findContours(bin, contours, hierarchy, RETR_EXTERNAL, CHAIN_APPROX_SIMPLE);
 
-            findContours(bin, contours, hierarchy, RETR_EXTERNAL, CHAIN_APPROX_SIMPLE);
+        int maxLevel = 0;
+        Mat drawed;
+        
+        for (int i = 0; i < contours.size(); ++i) {
+            double area = contourArea(contours[i], false);
 
-            int maxLevel = 0;
-            Mat out;
-            
-            for (int i = 0; i < contours.size(); ++i) {
-                drawContours(img, contours, i, Scalar(255, 0, 0, 255), 3, LINE_AA, hierarchy, maxLevel);
-
-                imshow("img", img);
-                waitKey(3000);
-                destroyAllWindows();
+            if (area > 5000) {
+                vector<Point> approx;
+                approxPolyDP(Mat(contours[i]), approx, 0.01 * arcLength(contours[i], true), true);
+                drawContours(img, drawed, i, Scalar(255, 0, 0, 255), 3, LINE_AA, hierarchy, maxLevel);
             }
         }
-        else
-        {
-            cout << "image is null" << endl;
-            cout << img << endl;
-        }
-        
 
-        
+        imshow("img", drawed);
+        waitKey(3000);
+        destroyAllWindows();       
     }
 
     public: Mat warpPerspect(Mat img) {
