@@ -29,18 +29,8 @@ int main() {
 
     cout << "start" << endl;
 
-    src = imread(src_path, 1);
-    
-    if (src.empty()) {
-        cout << "error at line 34" << endl;
-        return -1;
-    }
-
-    imshow("src", src);
-    waitKey(3000);
-    destroyAllWindows();
     // source image
-    getImage.contours(src);
+    getImage.contours(src_path);
     // target image
     // target = getImage.contours(target_path);
 

@@ -8,13 +8,15 @@ using namespace cv;
 class GetImage {
 
     // minimum coordinate
-    public: void contours(Mat &img) {
+    public: void contours(String s) {
 
+        Mat img;
         Mat gray;
         Mat equalized;
         Mat bin;
         Mat thres;
 
+        img = imread(s, 1);
         cvtColor(img, gray, COLOR_BGR2GRAY);
         equalizeHist(gray, equalized);
         threshold(gray, thres, 0, 255, THRESH_OTSU);
@@ -22,8 +24,8 @@ class GetImage {
 
         bitwise_not(bin, bin);
         bitwise_not(thres, thres);
-        imwrite("./result/bitwise_result.jpg", bin);
-        imwrite("./result/bitwise_result2.jpg", thres);
+        imwrite("./result/adaptive.jpg", bin);
+        imwrite("./result/thres.jpg", thres);
 
         vector<vector<Point>> contours;
         vector<Vec4i> hierarchy;
