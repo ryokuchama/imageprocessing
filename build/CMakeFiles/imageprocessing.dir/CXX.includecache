@@ -29,6 +29,8 @@ opencv2/opencv.hpp
 -
 opencv2/core.hpp
 -
+errno.h
+-
 
 /Users/kajikenshou/imageprocessing/src/MatchingFeature.hpp
 opencv2/opencv.hpp

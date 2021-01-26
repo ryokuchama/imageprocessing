@@ -1,11 +1,14 @@
 #include <opencv2/opencv.hpp>
 #include <opencv2/core.hpp>
+#include <errno.h>
 
 using namespace std;
 using namespace cv;
 
 // the class for read image as glay scale
 class GetImage {
+
+    int err; // error handling
 
     // minimum coordinate
     public: void contours(String s) {
@@ -17,6 +20,13 @@ class GetImage {
         Mat thres;
 
         img = imread(s, 1);
+
+        if (img.empty()) {
+            err = 0;
+            err = errno;
+            printf("Error: %s\n", strerror(err));
+            }
+
         cvtColor(img, gray, COLOR_BGR2GRAY);
         equalizeHist(gray, equalized);
         threshold(gray, thres, 0, 255, THRESH_OTSU);
@@ -41,11 +51,14 @@ class GetImage {
             if (area > 5000) {
                 vector<Point> approx;
                 approxPolyDP(Mat(contours[i]), approx, 0.01 * arcLength(contours[i], true), true);
-                drawContours(img, drawed, i, Scalar(255, 0, 0, 255), 3, LINE_AA, hierarchy, maxLevel);
+
+                if (approx.size() == 4) {
+                    drawContours(img, contours[i], i, Scalar(255, 0, 0, 255), 3, LINE_AA, hierarchy, maxLevel);
+                }               
             }
         }
 
-        imshow("img", drawed);
+        imshow("img", img);
         waitKey(3000);
         destroyAllWindows();       
     }
