@@ -53,7 +53,7 @@ class GetImage {
                 approxPolyDP(Mat(contours[i]), approx, 0.01 * arcLength(contours[i], true), true);
 
                 if (approx.size() == 4) {
-                    drawContours(img, contours[i], i, Scalar(255, 0, 0, 255), 3, LINE_AA, hierarchy, maxLevel);
+                    drawContours(img, approx, i, Scalar(255, 0, 0, 255), 3, LINE_AA, hierarchy, maxLevel);
                 }               
             }
         }

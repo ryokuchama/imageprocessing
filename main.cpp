@@ -3,6 +3,7 @@
 #include "./src/GetImage.hpp"
 #include "./src/MatchingFeature.hpp"
 #include "./src/FindDifferences.hpp"
+#include <errno.h>
 
 using namespace std;
 using namespace cv;

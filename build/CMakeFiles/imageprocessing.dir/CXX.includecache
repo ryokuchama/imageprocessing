@@ -17,6 +17,8 @@ opencv2/imgproc.hpp
 /Users/kajikenshou/imageprocessing/src/MatchingFeature.hpp
 ./src/FindDifferences.hpp
 /Users/kajikenshou/imageprocessing/src/FindDifferences.hpp
+errno.h
+-
 
 /Users/kajikenshou/imageprocessing/src/FindDifferences.hpp
 opencv2/opencv.hpp
