@@ -60,10 +60,8 @@ class GetImage {
 
         imshow("img", img);
         waitKey(3000);
-        destroyAllWindows();       
-    }
+        destroyAllWindows();
 
-    public: Mat warpPerspect(Mat img) {
         Point2f src[4];
         Point2f dst[4];
         Mat warped;
@@ -71,6 +69,8 @@ class GetImage {
         Mat matrix = getPerspectiveTransform(src, dst);
         warpPerspective(img, warped, matrix, img.size(), INTER_LINEAR);
 
-        return warped;
+        imshow("warped", warped);
+        waitKey(3000);
+        destroyAllWindows();
     }
 };
