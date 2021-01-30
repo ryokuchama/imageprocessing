@@ -48,7 +48,7 @@ class GetImage {
         for (int i = 0; i < contours.size(); ++i) {
             double area = contourArea(contours[i], false);
 
-            if (area > 5000) {
+            if (area > 500) {
                 vector<Point> approx;
                 approxPolyDP(Mat(contours[i]), approx, 0.01 * arcLength(contours[i], true), true);
 
