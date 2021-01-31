@@ -4,6 +4,9 @@
 using namespace std;
 using namespace cv;
 
+/*
+* the class for find differences
+*/
 class FindDifferences {
 
     MatchingFeature mFeature = MatchingFeature();

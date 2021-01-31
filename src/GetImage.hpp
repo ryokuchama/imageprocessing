@@ -5,7 +5,9 @@
 using namespace std;
 using namespace cv;
 
-// the class for read image as glay scale
+/**
+ *  the class for read image as glay scale
+ * */
 class GetImage {
 
     int err; // error handling

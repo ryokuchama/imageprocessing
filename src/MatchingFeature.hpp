@@ -5,8 +5,8 @@
 using namespace std;
 using namespace cv;
 
-/*
- the class is for matching feature
+/**
+* the class is for matching feature
 */
 
 class MatchingFeature {
