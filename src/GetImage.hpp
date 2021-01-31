@@ -58,7 +58,7 @@ class GetImage {
             }
         }
 
-        imshow("img", img);
+        imwrite("./result/img.png", img);
         waitKey(3000);
         destroyAllWindows();
 
