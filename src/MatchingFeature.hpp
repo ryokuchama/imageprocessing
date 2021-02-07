@@ -109,20 +109,6 @@ class MatchingFeature {
         destroyAllWindows();
     }
 
-    // warp perspective
-    public: Mat warpPerspect(Mat &src, Mat &target) {
-        // output for warping perspective of src
-        Mat warpedSrc;
-        // output for warping perspective of target
-        Mat warpedTarget;
-
-        detectAndMatch(src, target);
-        // warpPerspective
-        warpPerspective(target, warpedTarget, *homography, Size(src.rows, src.cols));
-
-        return warpedTarget;
-    }
-
     // pick up matched object from target
     public: Mat detectObject(Mat &src, Mat &target) {
         
