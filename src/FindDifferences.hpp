@@ -20,12 +20,20 @@ class FindDifferences {
 
     public: void findDifferences(Mat src, Mat target) {
         
-        Mat srcChannels[3], sRed, sBlue, sGreen;
-        Mat targetChannels[3], tRed, tBlue, tGreen;
+        Mat srcChannels[3];
+        Mat targetChannels[3];
+        Mat red, green, blue;
 
         split(src, srcChannels);
         split(target, targetChannels);
         
+        absdiff(srcChannels[0], targetChannels[0], red);
+        absdiff(srcChannels[1], targetChannels[1], green);
+        absdiff(srcChannels[2], targetChannels[2], blue);
+
+        medianBlur(red, red, 5);
+        medianBlur(green, green, 5);
+        medianBlur(blue, blue, 5);
     }
 
     // trimming the src image
