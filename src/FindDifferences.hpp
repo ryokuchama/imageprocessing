@@ -34,10 +34,14 @@ class FindDifferences {
         medianBlur(red, red, 5);
         medianBlur(green, green, 5);
         medianBlur(blue, blue, 5);
+
+        Mat wiseMat;
+        bitwise_or(red, green, wiseMat);
+        bitwise_or(wiseMat, blue, wiseMat);
     }
 
     // trimming the src image
-    public: void trimImege(Mat src, Mat target) {
+    public: void trimImage(Mat src, Mat target) {
 
         int width = src.rows;
         int height = src.cols;
