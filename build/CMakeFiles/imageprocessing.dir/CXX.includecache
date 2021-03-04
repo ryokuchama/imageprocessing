@@ -25,6 +25,8 @@ opencv2/opencv.hpp
 -
 opencv2/imgproc.hpp
 -
+errno.h
+-
 
 /Users/kajikenshou/imageprocessing/src/GetImage.hpp
 opencv2/opencv.hpp

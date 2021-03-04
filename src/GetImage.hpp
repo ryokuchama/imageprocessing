@@ -32,7 +32,7 @@ class GetImage {
         cvtColor(img, gray, COLOR_BGR2GRAY);
         equalizeHist(gray, equalized);
         adaptiveThreshold(equalized, bin, 255, ADAPTIVE_THRESH_GAUSSIAN_C, THRESH_BINARY, 7, 8);
-        adaptiveThreshold(equalized, bin2, 255, ADAPTIVE_THRESH_GAUSSIAN_C, THRESH_BINARY, 7, 8);
+        adaptiveThreshold(equalized, bin2, 255, ADAPTIVE_THRESH_GAUSSIAN_C, THRESH_BINARY, 11, 2);
 
         bitwise_not(bin, bin);
         imwrite("./result/adaptive.jpg", bin);
