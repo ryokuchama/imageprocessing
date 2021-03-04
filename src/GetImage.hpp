@@ -19,7 +19,7 @@ class GetImage {
         Mat gray;
         Mat equalized;
         Mat bin;
-        Mat thres;
+        Mat bin2;
 
         img = imread(s, 1);
 
@@ -31,13 +31,12 @@ class GetImage {
 
         cvtColor(img, gray, COLOR_BGR2GRAY);
         equalizeHist(gray, equalized);
-        threshold(gray, thres, 0, 255, THRESH_OTSU);
         adaptiveThreshold(equalized, bin, 255, ADAPTIVE_THRESH_GAUSSIAN_C, THRESH_BINARY, 7, 8);
+        adaptiveThreshold(equalized, bin2, 255, ADAPTIVE_THRESH_GAUSSIAN_C, THRESH_BINARY, 7, 8);
 
         bitwise_not(bin, bin);
-        bitwise_not(thres, thres);
         imwrite("./result/adaptive.jpg", bin);
-        imwrite("./result/thres.jpg", thres);
+        imwrite("./result/adaptive2.jpg", bin2);
 
         vector<vector<Point>> contours;
         vector<Vec4i> hierarchy;

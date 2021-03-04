@@ -1,5 +1,6 @@
 #include <opencv2/opencv.hpp>
 #include <opencv2/imgproc.hpp>
+#include <errno.h>
 
 using namespace std;
 using namespace cv;
@@ -12,6 +13,8 @@ class FindDifferences {
     MatchingFeature mFeature = MatchingFeature();
     // trimmed image
     Mat trimmedSrc;
+    // error code
+    int err;
 
     // constructor
     public: FindDifferences() {
